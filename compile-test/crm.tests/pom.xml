@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
 	<artifactId>crm.tests</artifactId>
-	<version>6.1.0-SNAPSHOT</version>
+	<version>6.0.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 	<organization>
 		<name>AXON.IVY AG</name>
@@ -15,9 +15,11 @@
 			<!-- the project under test -->
 			<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
 			<artifactId>crm</artifactId>
-			<version>[6.1.0-SNAPSHOT,)</version>
+			<version>[6.0.0-SNAPSHOT,)</version>
 			<type>iar</type>
 		</dependency>
+
+		<!-- test depdencies: must be put manually on the classpath (see lib folder) -->
 		<dependency>
 			<!-- required: test framework used by the maven-surefire-plugin to run tests -->
 			<groupId>junit</groupId>
@@ -33,14 +35,16 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<build>
-		<!-- required: project-build-plugin must know where tests to build reside -->
-		<testSourceDirectory>src_test</testSourceDirectory>
+		<!-- required: maven-surefire-plugin must know where tests to execute reside -->
+		<testOutputDirectory>classes</testOutputDirectory>
+		
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>6.1.0-SNAPSHOT</version>
+				<version>6.0.3-SNAPSHOT</version>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
